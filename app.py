@@ -43,11 +43,14 @@ github = oauth.register(
     client_kwargs={'scope': 'user:email'},
 )
 
+
+
 # PostgreSQL Database Configuration.............
-DB_HOST = 'dpg-cnmngba1hbls739hfl3g-a'
+DB_HOSTS = 'dpg-cnmngba1hbls739hfl3g-a.oregon-postgres.render.com'
 DB_NAME = 'nikhil'
 DB_USER = 'nikhil_user'
 DB_PASSWORD = 'enT0wQTf9twsljGbeciMprAqKpXny8xi'
+DB_HOST = f"{DB_HOSTS}"
 
 ADMIN_PASSWORD = 'Nikhil@sitare'
 
