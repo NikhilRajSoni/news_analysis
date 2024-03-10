@@ -226,6 +226,7 @@ def submit_url():
 
         # Store data in PostgreSQL database
         try:
+            create_news_data_table()
             conn = connect_to_database()
             cursor = conn.cursor()
             cursor.execute("INSERT INTO news1(url, headline, text, num_sentences, num_words, pos_tags, publish_date, art_writer, stop_word_count, sentiment, Keywords) VALUES(%s, %s, %s, %s, %s, %s,%s,%s,%s, %s, %s)",
