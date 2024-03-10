@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Panel</title>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+<style>
+  .admin-table {
+    overflow: auto;
+  }
+
+  .admin-table table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  .Text {
+    max-width: 200px;
+    overflow-y: auto;
+    white-space: nowrap;
+  }
+
+  .url-content {
+    display: none; /* Initially hide the URL content */
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header"></div>
+  <div class="admin-table">
+    <table>
+      <tr style="background-color: #191919; color: white; ">
+        <th class="Sr-no">Sr no</th>
+        <th class="URL">URL (click on the link for text)</th>
+        <th class="Headline">Headline</th>
+        <th class="Number-of-Sentences">Number of Sentences</th>
+        <th class="Number-of-Words">Number of Words</th>
+        <th class="POS-Tags">POS Tags</th>
+        <th class="Publish-date">Publish_date</th>
+        <th class="Reporter">Reporter</th>
+        <th class="Stop-Words-Count">Stop Words Count</th>
+        <th class="Sentiment">Sentiment</th>
+        <th class="Freq_Words">Freq_Words</th>
+      </tr>
+      {% for item in data %}
+      <tr style="background-color: aqua;">
+        <td>{{ item[0] }}</td>
+        <td class="url" data-content="{{ item[3] }}">{{ item[1] }}</td>
+        <td>{{ item[2] }}</td>
+        <td>{{ item[4] }}</td>
+        <td>{{ item[5] }}</td>
+        <td>{{ item[6] }}</td>
+        <td>{{ item[7] }}</td>
+        <td>{{ item[8] }}</td>
+        <td>{{ item[9] }}</td>
+        <td>{{ item[10] }}</td>
+        <td>{{ item[11] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="separator"></div>
+</div>
+
+<!-- JavaScript to handle URL click event and redirect to new page -->
+<script>
+  document.querySelectorAll('.url').forEach(url => {
+    url.addEventListener('click', function() {
+      const content = this.getAttribute('data-content');
+      const url = `url_content?content=${encodeURIComponent(content)}`;
+      window.location.href = url;
+    });
+  });
+</script>
+</body>
+</html>
+
+
+

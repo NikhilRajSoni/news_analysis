@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    height: 90vh;
+    background-color: aqua;
+}
+
+.left {
+    flex: 1;
+    background-image: url('../Images/undraw_remotely_2j6y.svg');
+    background-size: 500px 500px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-color: #4f6731;
+    width: 350px;
+    height: 400px;
+    padding: 20px;
+    border: 8px solid #9f949e;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Center horizontally */
+    position: absolute; /* Position absolutely */
+    top: 0; /* Position from top */
+    bottom: 0; /* Position from bottom */
+    left: 0; /* Position from left */
+    right: 0; /* Position from right */
+}
+
+.form-container h2 {
+    text-align: center;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container button {
+
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.form-container button {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #0056b3;
+}
+
+.form-container .or-divider {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.form-container .google-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #db4437;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.form-container .google-btn:hover {
+    background-color: #c1351b;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Button styles */
+.love a {
+    display: inline-block;
+    padding: 10px 10px;
+    background-color: #ff0008;
+    color: #fff; 
+    text-decoration: none;
+    border-radius: 5px;
+    
+}
+
+/* Button hover styles */
+.love a:hover {
+    background-color: #050505;
+}
