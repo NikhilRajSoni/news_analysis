@@ -17,10 +17,8 @@ from authlib.integrations.flask_client import OAuth
 from nltk.tag import pos_tag
 from urllib.error import HTTPError
 
-nltk.download('averaged_perceptron_tagger')
-nltk.download("stopwords")
-nltk.download("punkt")
-nltk.download('universal_tagset')
+nltk.download('all')
+
 
 app = Flask(__name__)
 
