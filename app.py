@@ -275,9 +275,19 @@ def count_pos_tags(text):
 def login():
     return render_template('signin.html')
 
+
+@app.route('/admin')
+def admin():
+    conn = connect_to_database()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM news1")
+    data = cur.fetchall()
+    conn.close()
+    return render_template("admin.html", data=data)
 # Endpoint for 'admin'
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
+    
     if request.method == 'POST':
         password_attempt = request.form.get('password')
         if password_attempt == ADMIN_PASSWORD:
