@@ -21,11 +21,9 @@
                 <button type="submit">Sign In</button><br>
             </form>
             <div class="or-divider">or</div>
-            <button class="google-btn" id = 'google-login-btn'>Sign In with Google</button><br>
-            <div>Don't have an account? <a href="signup.html">Create One</a></div><br>
-            <div class="love">
-                <a href="{{ url_for('github_login') }}" >Admin Github Authentication</a>
-                </div>
+            <button class="google-btn" id = 'google-login-btn'><a href="{{ url_for('github_login') }}" >Admin Github Authentication</a></button><br>
+            
+           
         </div>
     </div>
 </body>
