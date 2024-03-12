@@ -285,8 +285,8 @@ def admin():
     conn.close()
     return render_template("admin.html", data=data)
 # Endpoint for 'admin'
-@app.route('/admin', methods=['GET', 'POST'])
-def admin():
+@app.route('/admin1', methods=['GET', 'POST'])
+def admin1():
     
     if request.method == 'POST':
         password_attempt = request.form.get('password')
