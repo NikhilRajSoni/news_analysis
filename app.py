@@ -157,11 +157,11 @@ def create_news_data_table():
         conn = connect_to_database()
         cursor = conn.cursor()
         cursor.execute("""
-            CREATE TABLE IF NOT EXISTS news1(
+            CREATE TABLE IF NOT EXISTS news2(
                 id SERIAL PRIMARY KEY,
                 url VARCHAR(10000),
                 headline VARCHAR(5000),
-                text VARCHAR(1000000),
+                text TEXT,
                 num_sentences VARCHAR(10000),
                 num_words VARCHAR(5000),
                 pos_tags VARCHAR(1000), publish_date text,
@@ -231,7 +231,7 @@ def submit_url():
             create_news_data_table()
             cursor = conn.cursor()
             create_news_data_table()
-            cursor.execute("INSERT INTO news1(url, headline, text, num_sentences, num_words, pos_tags, publish_date, art_writer, stop_word_count, sentiment, Keywords) VALUES(%s, %s, %s, %s, %s, %s,%s,%s,%s, %s, %s)",
+            cursor.execute("INSERT INTO news2(url, headline, text, num_sentences, num_words, pos_tags, publish_date, art_writer, stop_word_count, sentiment, Keywords) VALUES(%s, %s, %s, %s, %s, %s,%s,%s,%s, %s, %s)",
                             (url, topic, cleaned_text, num_sentences, word_count, pos_dict, date, writer, s_count, sentiment, freq_10))
             conn.commit()
             conn.close()
@@ -280,7 +280,7 @@ def login():
 def admin():
     conn = connect_to_database()
     cur = conn.cursor()
-    cur.execute("SELECT * FROM news1")
+    cur.execute("SELECT * FROM news2")
     data = cur.fetchall()
     conn.close()
     return render_template("admin.html", data=data)
@@ -293,7 +293,7 @@ def admin1():
             # Password is correct, fetch the stored table information
             conn = connect_to_database()
             cur = conn.cursor()
-            cur.execute("SELECT * FROM news1")
+            cur.execute("SELECT * FROM news2")
             data = cur.fetchall()
             conn.close()
             return render_template("admin.html", data=data)
@@ -321,7 +321,7 @@ def get_data_by_url(url):
     try:
         conn = connect_to_database()
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM news1 WHERE url = %s", (url,))
+        cursor.execute("SELECT * FROM news2 WHERE url = %s", (url,))
         data = cursor.fetchone()
         conn.close()
         return data
@@ -349,7 +349,7 @@ def github_authorize():
     
     cursor = connection.cursor()
 
-    cursor.execute("SELECT * FROM news1")
+    cursor.execute("SELECT * FROM news2")
     data = cursor.fetchall()
 
     connection.close()
